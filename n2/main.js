@@ -33,11 +33,11 @@ let cellWidth =gameSize/5;
 
 let letterMas = [];
 
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < 5; i++) {
 	letterMas[i] = [];
 
 
-	for (let j = 0; j < 3; j++) {
+	for (let j = 0; j < 5; j++) {
 		
 		letterMas[i][j] = '';
 			
@@ -56,57 +56,36 @@ function draw(){
 
 	
 	ctx.strokeRect(bW,bH,cellWidth,cellWidth);
+	ctx.strokeRect(bW+cellWidth,bH,cellWidth,cellWidth);
+	ctx.strokeRect(bW+2*cellWidth,bH,cellWidth,cellWidth);
+	ctx.strokeRect(bW+3*cellWidth,bH,cellWidth,cellWidth);
+	ctx.strokeRect(bW+4*cellWidth,bH,cellWidth,cellWidth);
 
-	ctx.strokeRect(bW+130,bH,cellWidth,cellWidth);
-	ctx.strokeRect(bW+130,bH+130,cellWidth,cellWidth);
+	ctx.strokeRect(bW,bH+cellWidth,cellWidth,cellWidth);
+	ctx.strokeRect(bW+cellWidth,bH+cellWidth,cellWidth,cellWidth);
+	ctx.strokeRect(bW+2*cellWidth,bH+cellWidth,cellWidth,cellWidth);
+	ctx.strokeRect(bW+3*cellWidth,bH+cellWidth,cellWidth,cellWidth);
+	ctx.strokeRect(bW+4*cellWidth,bH+cellWidth,cellWidth,cellWidth);
 
-	ctx.strokeRect(bW+260,bH,cellWidth,cellWidth);
-	ctx.strokeRect(bW+260,bH+130,cellWidth,cellWidth);
-
-	ctx.strokeRect(bW+390,bH,cellWidth,cellWidth);
-	ctx.strokeRect(bW+390,bH+130,cellWidth,cellWidth);
-
-	ctx.strokeRect(bW+520,bH,cellWidth,cellWidth);
-	ctx.strokeRect(bW+520,bH+130,cellWidth,cellWidth);
+	ctx.strokeRect(bW,			  bH+2*cellWidth,cellWidth,cellWidth);
+	ctx.strokeRect(bW+cellWidth,  bH+2*cellWidth,cellWidth,cellWidth);
+	ctx.strokeRect(bW+2*cellWidth,bH+2*cellWidth,cellWidth,cellWidth);
+	ctx.strokeRect(bW+3*cellWidth,bH+2*cellWidth,cellWidth,cellWidth);
+	ctx.strokeRect(bW+4*cellWidth,bH+2*cellWidth,cellWidth,cellWidth);
  
-//
-	ctx.strokeRect(bW,bH+130,cellWidth,cellWidth);
-	ctx.strokeRect(bW+130,bH+260,cellWidth,cellWidth);
+ 	ctx.strokeRect(bW,			  bH+3*cellWidth,cellWidth,cellWidth);
+	ctx.strokeRect(bW+cellWidth,  bH+3*cellWidth,cellWidth,cellWidth);
+	ctx.strokeRect(bW+2*cellWidth,bH+3*cellWidth,cellWidth,cellWidth);
+	ctx.strokeRect(bW+3*cellWidth,bH+3*cellWidth,cellWidth,cellWidth);
+	ctx.strokeRect(bW+4*cellWidth,bH+3*cellWidth,cellWidth,cellWidth);
 
-	ctx.strokeRect(bW,bH+260,cellWidth,cellWidth);
-	ctx.strokeRect(bW+260,bH+260,cellWidth,cellWidth);
-	
-	ctx.strokeRect(bW,bH+390,cellWidth,cellWidth);
-	ctx.strokeRect(bW+390,bH+260,cellWidth,cellWidth);
+	ctx.strokeRect(bW,			  bH+4*cellWidth,cellWidth,cellWidth);
+	ctx.strokeRect(bW+cellWidth,  bH+4*cellWidth,cellWidth,cellWidth);
+	ctx.strokeRect(bW+2*cellWidth,bH+4*cellWidth,cellWidth,cellWidth);
+	ctx.strokeRect(bW+3*cellWidth,bH+4*cellWidth,cellWidth,cellWidth);
+	ctx.strokeRect(bW+4*cellWidth,bH+4*cellWidth,cellWidth,cellWidth);
 
-	ctx.strokeRect(bW,bH+520,cellWidth,cellWidth);
-	ctx.strokeRect(bW+520,bH+260,cellWidth,cellWidth);
 
-//
-	ctx.strokeRect(bW,bH+130,cellWidth,cellWidth);
-	ctx.strokeRect(bW+130,bH+390,cellWidth,cellWidth);
-
-	ctx.strokeRect(bW,bH+260,cellWidth,cellWidth);
-	ctx.strokeRect(bW+260,bH+390,cellWidth,cellWidth);
-	
-	ctx.strokeRect(bW,bH+390,cellWidth,cellWidth);
-	ctx.strokeRect(bW+390,bH+390,cellWidth,cellWidth);
-
-	ctx.strokeRect(bW,bH+520,cellWidth,cellWidth);
-	ctx.strokeRect(bW+520,bH+390,cellWidth,cellWidth);
-		
-//
-	ctx.strokeRect(bW,bH+130,cellWidth,cellWidth);
-	ctx.strokeRect(bW+130,bH+520,cellWidth,cellWidth);
-
-	ctx.strokeRect(bW,bH+260,cellWidth,cellWidth);
-	ctx.strokeRect(bW+260,bH+520,cellWidth,cellWidth);
-	
-	ctx.strokeRect(bW,bH+390,cellWidth,cellWidth);
-	ctx.strokeRect(bW+390,bH+520,cellWidth,cellWidth);
-
-	ctx.strokeRect(bW,bH+520,cellWidth,cellWidth);
-	ctx.strokeRect(bW+520,bH+520,cellWidth,cellWidth);
 
 	// ctx.strokeRect(bW,bH,gameSize,gameSize);
 	
@@ -132,8 +111,8 @@ function draw(){
 		for (let j = 0; j < letterMas[i].length; j++) {
 
 			ctx.fillText(letterMas[j][i], 
-				bW + gameSize/3 * i + gameSize/3/2, 
-				bH + gameSize/3 * j + gameSize/3/2);
+				bW + gameSize/5 * i + gameSize/5/2, 
+				bH + gameSize/5 * j + gameSize/5/2);
 		}
 	}
 
@@ -164,8 +143,8 @@ canv.onclick = click;
 
 function turn(ox,oy){
 
-	let a = Math.floor(ox/(gameSize/3));
- 	let b = Math.floor(oy/(gameSize/3));
+	let a = Math.floor(ox/(gameSize/5));
+ 	let b = Math.floor(oy/(gameSize/5));
 
 
 	console.log("относительно_квадрата",ox, oy);
@@ -191,11 +170,11 @@ function turn(ox,oy){
 function check(){
 
 	// checking rows
-	for (let i = 0; i < 3; i++) {
+	for (let i = 0; i < 5; i++) {
 		if (letterMas[i][0] === '') continue;
 		let l = true;
 
-		for (let j = 1; j < 3; j++)
+		for (let j = 1; j < 5; j++)
 			if (letterMas[i][0] !== letterMas[i][j]) l = false;
 
 		if (l) return true;
@@ -203,11 +182,11 @@ function check(){
 
 
 	//chek column
-	for (let i = 0; i < 3; i++) {
+	for (let i = 0; i < 5; i++) {
 		if (letterMas[0][i] === '') continue;
 		let l = true;
 
-		for (let j = 1; j < 3; j++)
+		for (let j = 1; j < 5; j++)
 			if (letterMas[0][i] !== letterMas[j][i]) l = false;
 
 		if (l) return true;
@@ -217,12 +196,16 @@ function check(){
 // checking first diagonal
 	if (letterMas[0][0] !== '' && 
 			letterMas[0][0] === letterMas[1][1] && 
-			letterMas[0][0] === letterMas[2][2]) return true;
+			letterMas[0][0] === letterMas[2][2] && 
+			letterMas[0][0] === letterMas[3][3] && 
+			letterMas[0][0] === letterMas[4][4]) return true;
 
 	// checking second diagonal
-	if (letterMas[0][2] !== '' && 
-			letterMas[0][2] === letterMas[1][1] && 
-			letterMas[0][2] === letterMas[2][0]) return true;
+	if (letterMas[0][4] !== '' && 
+			letterMas[0][4] === letterMas[1][3] && 
+			letterMas[0][4] === letterMas[2][2]&& 
+			letterMas[0][4] === letterMas[3][1]&& 
+			letterMas[0][4] === letterMas[4][0]) return true;
 
 
 		
